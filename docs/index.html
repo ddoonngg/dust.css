@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dust.css</title>
+  <link rel="stylesheet" href="css/dust.css" />
+  <link rel="stylesheet" href="css/docs.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap"
+    rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/43dcabcec3.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header>
+    Header
+  </header>
+  <nav class="dust-container dust-container--m dust-container--l" id="primary-nav">
+    <ul>
+      <li><a href="">Grid</a></li>
+      <li><a href="">Typography</a></li>
+      <li><a href="">Button</a></li>
+      <li><a href="">Radio</a></li>
+      <li><a href="">Switch</a></li>
+      <li><a href="">Input</a></li>
+      <li><a href="">Tooltip</a></li>
+      <li><a href="">Shadow</a></li>
+    </ul>
+  </nav>
+
+  <main class="dust-container dust-container--m dust-container--l">
+    <section class="component-section">
+      <h2>Button</h2>
+      <div class="dust-row">
+        <div class="dust-col dust-col--12--s dust-col--6--m">
+            <section class="code-box">
+              <section class="code-box-inner"> 
+                <div class="code-box-demo">
+                  <button class="dust-btn dust-btn-default"><span>Default</span></button>
+                  <button class="dust-btn dust-btn-primary "><span>Primary</span></button>
+                  <button class="dust-btn dust-btn-dashed"><span>Dashed</span></button>
+                  <button class="dust-btn dust-btn-link"><span>Link</span></button>
+                </div>
+                <h5 class="code-box-title">Types</h5>
+                <p>Four types of buttons: Default, Primary, Dashed, and Link.</p>
+                <h5 class="code-box-title">Code</h5>
+                </pre>
+              </section>
+            </section>
+        </div>
+        <div class="dust-col dust-col--12--s dust-col--6--m">
+          <section class="code-box">
+            <section class="code-box-inner"> 
+              <div class="code-box-demo">
+                <button class="dust-btn dust-btn-primary dust-btn-icon-only"><i class="fas fa-download"></i></button>
+                <button class="dust-btn dust-btn-primary dust-btn-with-icon"><i class="fas fa-download"></i><span>Download</span></button>
+                <button class="dust-btn dust-btn-default dust-btn-icon-only"><i class="fas fa-download"></i></button>
+                <button class="dust-btn dust-btn-default dust-btn-with-icon"><i class="fas fa-download"></i><span>Download</span></button>
+                <button class="dust-btn dust-btn-dashed dust-btn-icon-only"><i class="fas fa-download"></i></button>
+                <button class="dust-btn dust-btn-dashed dust-btn-with-icon"><i class="fas fa-download"></i><span>Download</span></button>
+              </div>
+              <h5 class="code-box-title">Use with icon</h5>
+              <p>Icon only button and button with icon</p>
+              <h5 class="code-box-title">Code</h5>
+              </pre>
+            </section>
+          </section>
+        </div>
+      </div>
+      <div class="dust-row">
+         <div class="dust-col dust-col--12--s dust-col--6--m">
+            <section class="code-box">
+              <section class="code-box-inner"> 
+                <div class="code-box-demo">
+                  <div>
+                    <button class="dust-btn dust-btn-default dust-btn--s"><span>Small</span></button>
+                    <button class="dust-btn dust-btn-default"><span>Default</span></button>
+                    <button class="dust-btn dust-btn-default dust-btn--l"><span>Large</span></button>
+                  </div>
+                  <div>
+                    <button class="dust-btn dust-btn-primary dust-btn--s"><span>Small</span></button>
+                    <button class="dust-btn dust-btn-primary"><span>Default</span></button>
+                    <button class="dust-btn dust-btn-primary dust-btn--l"><span>Large</span></button>
+                  </div>
+                  <div>
+                    <button class="dust-btn dust-btn-dashed dust-btn--s"><span>Small</span></button>
+                    <button class="dust-btn dust-btn-dashed"><span>Default</span></button>
+                    <button class="dust-btn dust-btn-dashed dust-btn--l"><span>Large</span></button>
+                  </div>
+                  <div>
+                    <button class="dust-btn dust-btn-primary dust-btn-icon-only dust-btn--s"><i class="fas fa-download"></i></button>
+                    <button class="dust-btn dust-btn-primary dust-btn-icon-only"><i class="fas fa-download"></i></button>
+                    <button class="dust-btn dust-btn-primary dust-btn-icon-only dust-btn--l"><i class="fas fa-download"></i></button>
+                  </div>
+                </div>
+                <h5 class="code-box-title">Sizes</h5>
+                <p>Three sizes of button: small, default, and large.</p>
+                <h5 class="code-box-title">Code</h5>
+                </pre>
+              </section>
+            </section>
+          </div>
+          <div class="dust-col dust-col--12--s dust-col--6--m">
+            <section class="code-box">
+              <section class="code-box-inner"> 
+                <div class="code-box-demo">
+                  <div>
+                    <button class="dust-btn dust-btn-primary dust-btn-is-loading"><span>Primary</span></button>
+                    <button class="dust-btn dust-btn-default dust-btn-is-loading"><span>default</span></button>
+                    <button class="dust-btn dust-btn-primary dust-btn-icon-only dust-btn-is-loading"><i class="far fa-bell"></i></button>
+                  </div>
+                  <div>
+                    <button class="dust-btn dust-btn-primary">
+                      <span>Primary</span>
+                    </button>
+                    <button disabled class="dust-btn dust-btn-primary">
+                      <span>Primary</span>
+                    </button>
+                  </div>
+                  <div>
+                    <button class="dust-btn dust-btn-default">
+                      <span>default</span>
+                    </button>
+                    <button disabled class="dust-btn dust-btn-default">
+                      <span>default</span>
+                    </button>
+                  </div>
+                  <div>
+                    <button class="dust-btn dust-btn-dashed"><span>Dashed</span></button>
+                    <button disabled class="dust-btn dust-btn-dashed">
+                      <span>Dashed</span>
+                    </button>
+                  </div>
+                  <div>
+                    <button class="dust-btn dust-btn-link"><span>Link</span></button>
+                    <button disabled class="dust-btn dust-btn-link">
+                      <span>Link</span>
+                    </button>
+                  </div>
+                  <div>
+                    <button class="dust-btn dust-btn-primary dust-btn-dangerous">
+                      <span>Danger</span>
+                    </button>
+                    <button disabled class="dust-btn dust-btn-primary dust-btn-dangerous">
+                      <span>Danger</span>
+                    </button>
+                  </div>
+                </div>
+                <h5 class="code-box-title">States</h5>
+                <p>Loading and disabled</p>
+                <h5 class="code-box-title">Code</h5>
+                </pre>
+              </section>
+            </section>
+          </div>
+      </div>
+      <div class="dust-row">
+         <div class="dust-col dust-col--12--s dust-col--6--m">
+            <section class="code-box">
+              <section class="code-box-inner"> 
+                <div class="code-box-demo">
+                    <button class="dust-btn dust-btn-primary dust-btn-dangerous"><span>Danger</span></button>
+                    <button class="dust-btn dust-btn-default dust-btn-dangerous"><span>Danger</span></button>
+                    <button class="dust-btn dust-btn-dashed dust-btn-dangerous"><span>Danger</span></button>
+                    <button class="dust-btn dust-btn-link dust-btn-dangerous"><span>Danger</span></button>
+                    <button class="dust-btn dust-btn-dangerous dust-btn-icon-only"><i class="fas fa-exclamation"></i></button>
+                    <button class="dust-btn dust-btn-primary dust-btn-dangerous dust-btn-icon-only"><i class="fas fa-exclamation"></i></button>
+                </div>
+                <h5 class="code-box-title">Danger</h5>
+                <h5 class="code-box-title">Code</h5>
+                </pre>
+              </section>
+            </section>
+          </div>
+          <div class="dust-col dust-col--12--s dust-col--6--m">
+            <section class="code-box">
+              <section class="code-box-inner"> 
+                <div>
+                  <button class="dust-btn dust-btn-default dust-btn-block"><span>Block</span></button>
+                  <button class="dust-btn dust-btn-primary dust-btn-block"><span>Block</span></button>
+                  <button class="dust-btn dust-btn-dashed dust-btn-block"><span>Block</span></button>
+                </div>
+                <p>Block button</p>
+                <h5 class="code-box-title">Code</h5>
+                </pre>
+              </section>
+            </section>
+          </div>
+      </div>
+    </section>
+    
+    <section class="component-section">
+      <h1 class="section-title">Headings</h1>
+      <section class="code-box">
+          <section class="code-box-inner"> 
+            <div class="dust-row">
+              <div class="dust-col dust-col--12--s dust-col--6--m">
+                 <div class="code-box-demo">
+                   <h1>HEADING 1</h1>
+                   <h2>HEADING 2</h2>
+                   <h2>HEADING 3</h2>
+                   <h3>HEADING 4</h3>
+                   <h5>HEADING 5</h5>
+                   <h6>HEADING 6</h6>
+                </div>
+              </div>
+              <div class="dust-col dust-col--12--s dust-col--6--m">
+                <h5 class="code-box-title">Code</h5>
+              </div>
+               
+            </div>
+           
+          </section>
+      </section>
+    </section>
+
+    <section class="component-section">
+      <h1 class="section-title">Grid</h1>
+      
+      <section class="code-box">
+          <section class="code-box-inner"> 
+            <div class="dust-row">
+              <div class="dust-col dust-col--12">
+                 <div class="code-box-demo">
+                   <div class="no-gutter-example">
+                     <div class="dust-row dust-row--no-gutter">
+                        <div class="dust-col dust-col--12">
+                          <div>12</div>
+                        </div>
+                      </div>
+                      <div class="dust-row dust-row--no-gutter">
+                        <div class="dust-col dust-col--6">
+                          <div>6</div>
+                        </div>
+                        <div class="dust-col dust-col--6">
+                          <div>6</div>
+                        </div>
+                      </div>
+                      <div class="dust-row dust-row--no-gutter">
+                        <div class="dust-col dust-col--3">
+                          <div>3</div>
+                        </div>
+                        <div class="dust-col dust-col--3">
+                          <div>3</div>
+                        </div>
+                        <div class="dust-col dust-col--3">
+                          <div>3</div>
+                        </div>
+                        <div class="dust-col dust-col--3">
+                          <div>3</div>
+                        </div>
+                      </div>
+                      <div class="dust-row dust-row--no-gutter">
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                    </div>
+                  </div>
+                 </div>
+              </div>
+              <div class="dust-col dust-col--12">
+                <h5>Basic 12 grid (no gutter)</h5>
+                <p>12 grid explain</p>
+                <h5 class="code-box-title">Code</h5>
+              </div>
+            </div>
+          </section>
+      </section>
+      
+      <section class="code-box">
+          <section class="code-box-inner"> 
+            <div class="dust-row">
+              <div class="dust-col dust-col--12">
+                 <div class="code-box-demo">
+                   <div class="no-gutter-example">
+                     <div class="dust-row">
+                        <div class="dust-col dust-col--12">
+                          <div>12</div>
+                        </div>
+                      </div>
+                      <div class="dust-row">
+                        <div class="dust-col dust-col--6">
+                          <div>6</div>
+                        </div>
+                        <div class="dust-col dust-col--6">
+                          <div>6</div>
+                        </div>
+                      </div>
+                      <div class="dust-row">
+                        <div class="dust-col dust-col--3">
+                          <div>3</div>
+                        </div>
+                        <div class="dust-col dust-col--3">
+                          <div>3</div>
+                        </div>
+                        <div class="dust-col dust-col--3">
+                          <div>3</div>
+                        </div>
+                        <div class="dust-col dust-col--3">
+                          <div>3</div>
+                        </div>
+                      </div>
+                      <div class="dust-row">
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                    </div>
+                  </div>
+                 </div>
+              </div>
+              <div class="dust-col dust-col--12">
+                <h5>Basic 12 grid (with gutter)</h5>
+                <p>12 grid explain</p>
+                <h5 class="code-box-title">Code</h5>
+              </div>
+            </div>
+          </section>
+      </section>
+
+      <section class="code-box">
+          <section class="code-box-inner"> 
+            <div class="dust-row">
+              <div class="dust-col dust-col--12">
+                 <div class="code-box-demo">
+                   <div class="no-gutter-example">
+                     <div class="dust-row">
+                        <div class="dust-col dust-col--12">
+                          <div>12</div>
+                        </div>
+                      </div>
+                      <div class="dust-row">
+                        <div class="dust-col dust-col--6">
+                          <div>6</div>
+                        </div>
+                        <div class="dust-col dust-col--6">
+                          <div>6</div>
+                        </div>
+                      </div>
+                      <div class="dust-row">
+                        <div class="dust-col dust-col--3">
+                          <div>3</div>
+                        </div>
+                        <div class="dust-col dust-col--3">
+                          <div>3</div>
+                        </div>
+                        <div class="dust-col dust-col--3">
+                          <div>3</div>
+                        </div>
+                        <div class="dust-col dust-col--3">
+                          <div>3</div>
+                        </div>
+                      </div>
+                      <div class="dust-row">
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                        <div class="dust-col dust-col--1">
+                          <div>1</div>
+                        </div>
+                    </div>
+                  </div>
+                 </div>
+              </div>
+              <div class="dust-col dust-col--12">
+                <h5>Responsive gutter</h5>
+                <ul>
+                  <li>The gutter for different screen size can be customized by overwriting the _varibles.scss</li>
+                  <li>You can also adding medium suffix to change grid responsively</li>
+                </ul>
+                <h5 class="code-box-title">Code</h5>
+                <h5 class="code-box-title">Overwritable variables</h5>
+              </div>
+            </div>
+          </section>
+      </section>
+
+      <section class="code-box">
+          <section class="code-box-inner"> 
+            <div class="dust-row">
+              <div class="dust-col dust-col--12">
+                 <div class="code-box-demo">
+                    <div class="dust-row dust-row--no-gutter">
+                      <div class="dust-col dust-col--3 dust-col--offset-9">
+                        <div> col-3 off-set-9</div>
+                      </div>
+                    </div>
+                    <div class="dust-row dust-row--no-gutter">
+                      <div class="dust-col dust-col--3 dust-col--push-9">
+                        <div> col-3 push-9</div>
+                      </div>
+                      <div class="dust-col dust-col--9 dust-col--pull-3">
+                        <div> col-9 push-3</div>
+                      </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="dust-col dust-col--12">
+                <h5>Example of using utilitie class to algin your cols since this grid system is build on flexbox</h5>
+                <ul>
+                  <li>center</li>
+                  <li>start</li>
+                  <li>right</li>
+                </ul>
+                <h5 class="code-box-title">Code</h5>
+              </div>
+            </div>
+          </section>
+      </section>
+      <section class="code-box">
+          <section class="code-box-inner"> 
+            <div class="dust-row">
+              <div class="dust-col dust-col--12">
+                 <div class="code-box-demo">
+                    <div class="dust-row dust-row--no-gutter">
+                      <div class="dust-col dust-col--3 dust-col--offset-9">
+                        <div> col-3 off-set-9</div>
+                      </div>
+                    </div>
+                    <div class="dust-row dust-row--no-gutter">
+                      <div class="dust-col dust-col--3 dust-col--push-9">
+                        <div> col-3 push-9</div>
+                      </div>
+                      <div class="dust-col dust-col--9 dust-col--pull-3">
+                        <div> col-9 push-3</div>
+                      </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="dust-col dust-col--12">
+                <h5>Example of using grid utilities</h5>
+                <ul>
+                  <li>offset</li>
+                  <li>push</li>
+                  <li>pull</li>
+                </ul>
+                <h5 class="code-box-title">Code</h5>
+              </div>
+            </div>
+          </section>
+      </section>
+    </section>
+
+
+
+
+
+  </main>
+
+  <section class="dust-container dust-container--s dust-container--m dust-container--l">
+    <h1>Radio</h1>
+    <div>
+      <label class="dust-radio-wrapper">
+        <span class="dust-radio">
+          <input class="dust-radio-input" name="userid" value="a" type="radio">
+          <span class="dust-radio-inner">
+          </span>
+        </span>
+        <span>A Label</span>
+      </label>
+      <label class="dust-radio-wrapper">
+        <span class="dust-radio">
+          <input class="dust-radio-input" name="userid" value="b" type="radio">
+          <span class="dust-radio-inner">
+          </span>
+        </span>
+        <span>B Label</span>
+      </label>
+      <label class="dust-radio-wrapper">
+        <span class="dust-radio">
+          <input class="dust-radio-input" name="userid" value="c" type="radio">
+          <span class="dust-radio-inner">
+          </span>
+        </span>
+        <span>C Label</span>
+      </label>
+      <label class="dust-radio-wrapper is-disabled is-checked">
+        <span class="dust-radio">
+          <input class="dust-radio-input" name="userid" disabled checked value="d" type="radio">
+          <span class="dust-radio-inner">
+          </span>
+        </span>
+        <span>Disbaled</span>
+      </label>
+      <label class="dust-radio-wrapper is-disabled">
+        <span class="dust-radio">
+          <input class="dust-radio-input" name="userid" disabled value="d" type="radio">
+          <span class="dust-radio-inner">
+          </span>
+        </span>
+        <span>Disbaled</span>
+      </label>
+    </div>
+    <label for="">
+      <input type="checkbox" name="" id="">
+    </label>
+    <div class="check-marker"></div>
+
+  </section>
+
+  <section
+    class="dust-container dust-container--xs dust-container--s dust-container--m dust-container--l dust-container--xl">
+    <h2>Switch</h2>
+    <div>
+
+
+      <label class="dust-switch-wrapper">
+        <span class="dust-switch">
+          <input class="dust-switch-input" type="checkbox">
+          <span class="dust-switch-inner"></span>
+        </span>
+      </label>
+      <label class="dust-switch-wrapper is-checked">
+        <span class="dust-switch">
+          <input class="dust-switch-input" type="checkbox">
+          <span class="dust-switch-inner"></span>
+        </span>
+        <span>Off</span>
+      </label>
+      <label class="dust-switch-wrapper dust-switch-wrapper--s is-checked">
+        <span class="dust-switch">
+          <input class="dust-switch-input" type="checkbox">
+          <span class="dust-switch-inner"></span>
+        </span>
+        <span>Off</span>
+      </label>
+    </div>
+  </section>
+
+  <section
+    class="dust-container dust-container--xs dust-container--s dust-container--m dust-container--l dust-container--xl">
+    <h2>Input</h2>
+    <div>
+      <input class="dust-input dust-input--s" type="text">
+    </div>
+    <br>
+    <div>
+      <input class="dust-input" type="text">
+    </div>
+    <br>
+
+
+    <div>
+      <input class="dust-input dust-input--l" type="text">
+    </div>
+
+  </section>
+
+  <section class="dust-container dust-container--xs dust-container--s dust-container--m dust-container--l dust-container--xl">
+    <h1>Tooltips</h1>
+    <p><a class="dust-tooltip dust-tooltip--bottom" data-tooltip="Tooltip is a tooltip">tooltip</a>
+    </p>
+    <p><a class="dust-tooltip dust-tooltip--top" data-tooltip="Tooltip is a tooltip">tooltip</a> </p>
+
+    <p><a class="dust-tooltip dust-tooltip--left" data-tooltip="Tooltip is a tooltip">tooltip</a> </p>
+    <p><a class="dust-tooltip dust-tooltip--right" data-tooltip="Tooltip is a tooltip">tooltip</a> </p>
+    <p> <span class="dust-tooltip dust-tooltip--top" data-tooltip="Tooltip is a tooltip">
+        <button class="dust-btn dust-btn-primary "><span>Hover me</span></button>
+      </span></p>
+    <select multiple="">
+      <option value="TRENDING" data-id="TRENDING" data-name="Trending">Trending</option>
+      <option value="LATEST" data-id="LATEST" data-name="Latest">Latest</option>
+      <option value="POPULAR" data-id="POPULAR" data-name="Popular">Popular</option>
+    </select>
+  </section>
+  <section>
+    <h1>shadow</h1>
+    <div class="dust-container">
+      <div class="dust-row">
+        <div class="dust-col dust-col--4">
+          <div class="shadow-example-box dust-shadow"></div>
+        </div>
+        <div class="dust-col dust-col--4">
+          <div class="shadow-example-box dust-shadow--light"></div>
+        </div>
+        <div class="dust-col dust-col--4">
+          <div class="shadow-example-box dust-shadow--heavy"></div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </section>
+
+</body>
+
+</html>

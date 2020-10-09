@@ -1,0 +1,38 @@
+.code-box {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 16px;
+  border: 1px solid #f0f0f0;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+.code-box-inner {
+  padding: 24px;
+  color: rgba(0, 0, 0, 0.85);
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.code-box-inner .dust-btn {
+  margin-right: 8px;
+  margin-bottom: 12px;
+}
+
+.code-box-demo .dust-col > div {
+  margin-bottom: 12px;
+  font-size: 14px;
+  padding: 0.75em 0;
+}
+
+.code-box-demo .dust-col:nth-child(odd) > div {
+  background-color: #1890ff;
+  text-align: center;
+  color: #fff;
+}
+
+.code-box-demo .dust-col:nth-child(even) > div {
+  background-color: #4ba9ff;
+  text-align: center;
+  color: #fff;
+}
