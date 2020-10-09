@@ -1,0 +1,115 @@
+$switchClassName: "switch";
+$switch-wrapper: #{$global-prefix}-#{$switchClassName}-wrapper;
+$customized-switch-container: #{$global-prefix}-#{$switchClassName};
+$native-switch: #{$global-prefix}-#{$switchClassName}-input;
+$customized-switch: #{$global-prefix}-#{$switchClassName}-inner;
+
+@mixin switch-size(
+  $breakpoint-suffix,
+  $switch-width,
+  $switch-height,
+  $switch-base-size,
+  $switch-base-padding
+) {
+  .#{$switch-wrapper}.#{$switch-wrapper}#{$breakpoint-suffix} {
+    height: $switch-height;
+
+    .#{$customized-switch-container} {
+      width: $switch-width;
+    }
+
+    .#{$customized-switch}:after {
+      width: $switch-base-size;
+      height: $switch-base-size;
+      transform: translate($switch-base-padding, $switch-base-padding);
+    }
+
+    .#{$native-switch}:checked {
+      & + .#{$customized-switch} {
+        background-color: $swtich-color;
+      }
+
+      & + .#{$customized-switch}:after {
+        transform: translate(
+          $switch-width - $switch-base-size - $switch-base-padding,
+          $switch-base-padding
+        );
+      }
+    }
+  }
+}
+
+.#{$switch-wrapper} {
+  display: inline-flex;
+  cursor: pointer;
+  align-items: center;
+  height: $switch-height;
+}
+
+.#{$customized-switch-container} {
+  display: inline-block;
+  position: relative;
+  height: inherit;
+  width: $switch-width;
+}
+.#{$customized-switch-container} + span {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.#{$native-switch} {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  opacity: 0;
+  z-index: 1;
+  height: inherit;
+}
+.#{$customized-switch} {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border-radius: $switch-height;
+  background-color: $switch-track-bg;
+}
+
+.#{$customized-switch}:hover {
+  &:after {
+    box-shadow: 0px 0px 2px 1px $swtich-color;
+  }
+}
+
+.#{$customized-switch}:after {
+  width: $switch-base-size;
+  height: $switch-base-size;
+  content: "";
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  box-sizing: border-box;
+  transform: translate($switch-base-padding, $switch-base-padding);
+  transition: all 100ms ease-in-out;
+}
+
+.#{$native-switch}:checked {
+  & + .#{$customized-switch} {
+    background-color: $swtich-color;
+  }
+  & + .#{$customized-switch}:after {
+    transform: translate(
+      $switch-width - $switch-base-size - $switch-base-padding,
+      $switch-base-padding
+    );
+  }
+}
+
+@include switch-size(
+  "--s",
+  $switch-width-s,
+  $switch-height-s,
+  $switch-base-size-s,
+  $switch-base-padding-s
+);

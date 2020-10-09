@@ -1,0 +1,56 @@
+.#{$global-prefix}-#{$btn-className} {
+  & {
+    @include btn();
+  }
+
+  &-primary {
+    @include btn-primary();
+  }
+
+  &-default {
+    @include btn-default();
+  }
+
+  &-dashed {
+    @include btn-dashed();
+  }
+
+  &-link {
+    @include btn-link($link-color);
+  }
+
+  &-dangerous {
+    @include btn-danger-default();
+    &.#{$global-prefix}-#{$btn-className}-primary {
+      @include btn-danger();
+    }
+
+    &.#{$global-prefix}-#{$btn-className}-link {
+      @include btn-danger-link();
+    }
+  }
+
+  &-block {
+    display: block;
+    width: 100%;
+  }
+  &-fluid {
+    width: 100%;
+  }
+
+  &-round {
+    @include btn-round();
+  }
+
+  &-icon-only {
+    @include btn-circle($btn-className);
+  }
+
+  &-with-icon {
+    @include btn-round();
+  }
+
+  &-is-loading {
+    @include btn-loading($btn-className);
+  }
+}

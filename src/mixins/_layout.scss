@@ -1,0 +1,75 @@
+@mixin make-container($containerClass, $breakpoint-suffix, $width, $padding-h) {
+  .#{$global-prefix}-#{$containerClass} {
+    padding: 0 $padding-h;
+  }
+  .#{$global-prefix}-#{$containerClass}#{$breakpoint-suffix} {
+    width: $width;
+  }
+}
+
+@mixin make-all-containers {
+  @media #{$xs-and-up} {
+    @include make-container(
+      $containerClass,
+      map-get($grid-breakpoints-suffix, "xs"),
+      100%,
+      map-get($container-h-paddings, "xs")
+    );
+  }
+  @media #{$s-and-up} {
+    @include make-container(
+      $containerClass,
+      map-get($grid-breakpoints-suffix, "s"),
+      $s-screen,
+      map-get($container-h-paddings, "s")
+    );
+  }
+  @media #{$m-and-up} {
+    @include make-container(
+      $containerClass,
+      map-get($grid-breakpoints-suffix, "m"),
+      $m-screen,
+      map-get($container-h-paddings, "m")
+    );
+  }
+  @media #{$l-and-up} {
+    @include make-container(
+      $containerClass,
+      map-get($grid-breakpoints-suffix, "l"),
+      $l-screen,
+      map-get($container-h-paddings, "l")
+    );
+  }
+  @media #{$xl-and-up} {
+    @include make-container(
+      $containerClass,
+      map-get($grid-breakpoints-suffix, "xl"),
+      $xl-screen,
+      map-get($container-h-paddings, "xl")
+    );
+  }
+  @media #{$xxl-and-up} {
+    @include make-container(
+      $containerClass,
+      map-get($grid-breakpoints-suffix, "xxl"),
+      $xxl-screen,
+      map-get($container-h-paddings, "xxl")
+    );
+  }
+}
+
+@mixin make-fluid-containers {
+  @include make-fluid-container("xs");
+  @include make-fluid-container("s");
+  @include make-fluid-container("m");
+  @include make-fluid-container("l");
+  @include make-fluid-container("xl");
+  @include make-fluid-container("xxl");
+}
+
+@mixin make-fluid-container($breakpoint-suffix) {
+  .#{$global-prefix}-#{$containerClass}--fluid.#{$global-prefix}-#{$containerClass}--#{$breakpoint-suffix} {
+    width: auto !important;
+    max-width: map-get($container-max-widths, $breakpoint-suffix);
+  }
+}

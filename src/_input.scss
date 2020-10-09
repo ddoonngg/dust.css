@@ -1,0 +1,49 @@
+$inputClassName: "input";
+
+@mixin input-size($font-size, $height, $padding, $border-radius) {
+  height: $height;
+  font-size: $font-size;
+  padding: $padding;
+  border-radius: $border-radius;
+}
+
+.#{$global-prefix}-#{$inputClassName} {
+  width: 100%;
+  transition: box-shadow 0.15s ease;
+  border: 1px solid $input-border-color-defaul;
+  outline: none;
+  margin: 0;
+  transition: all 200ms ease-in;
+
+  @include input-size(
+    $input-font-size-default,
+    $input-height-default,
+    $input-padding-default,
+    $input-border-radius-default
+  );
+
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
+    border-color: $input-border-default-hover-color;
+  }
+  &:focus:not(:disabled) {
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  }
+  &--s {
+    @include input-size(
+      $input-font-size-s,
+      $input-height-s,
+      $input-padding-s,
+      $input-border-radius-s
+    );
+  }
+
+  &--l {
+    @include input-size(
+      $input-font-size-l,
+      $input-height-l,
+      $input-padding-l,
+      $input-border-radius-l
+    );
+  }
+}

@@ -1,0 +1,11 @@
+$shadow-classname: "shadow";
+
+.#{$global-prefix}-#{$shadow-classname} {
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
+}
+.#{$global-prefix}-#{$shadow-classname}--light {
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.2);
+}
+.#{$global-prefix}-#{$shadow-classname}--heavy {
+  box-shadow: 0 0 4px 3px rgba(0, 0, 0, 0.2);
+}

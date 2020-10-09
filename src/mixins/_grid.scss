@@ -1,0 +1,94 @@
+@mixin make-grid-base {
+  // default
+
+  .#{$global-prefix}-row {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .#{$global-prefix}-col {
+    position: relative;
+    max-width: 100%;
+    min-height: 1px;
+  }
+
+  .#{$global-prefix}-row--no-gutter {
+    margin-left: 0;
+    margin-right: 0;
+    & > .#{$global-prefix}-col {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  @include loop-grid-columns($grid-columns, $grid-gutter-width-default);
+}
+
+@mixin make-grid-responsive {
+  @each $gird-breakpoint, $gird-breakpoint-width in $grid-breakpoints {
+    @media (min-width: #{$gird-breakpoint-width}) {
+      @include loop-grid-columns(
+        $grid-columns,
+        map-get($grid-gutter-width-by-breakpoint, $gird-breakpoint),
+        map-get($grid-breakpoints-suffix, $gird-breakpoint)
+      );
+    }
+  }
+}
+
+@mixin loop-grid-columns(
+  $column-number,
+  $column-gutter,
+  $breakpoint-suffix: ""
+) {
+  @for $i from 1 through $column-number {
+    .#{$global-prefix}-col--#{$i}#{$breakpoint-suffix} {
+      flex: 0 0 percentage($i/$column-number);
+    }
+
+    .#{$global-prefix}-col--offset-#{$i}#{$breakpoint-suffix} {
+      margin-left: percentage($i/$column-number);
+    }
+
+    .#{$global-prefix}-col--push-#{$i}#{$breakpoint-suffix} {
+      left: percentage($i/$column-number);
+    }
+
+    .#{$global-prefix}-col--pull-#{$i}#{$breakpoint-suffix} {
+      right: percentage($i/$column-number);
+    }
+
+    .#{$global-prefix}-col--order-#{$i}#{$breakpoint-suffix} {
+      order: $i;
+    }
+  }
+
+  .#{$global-prefix}-col--auto#{$breakpoint-suffix} {
+    flex-grow: 1 !important;
+    flex-basis: auto !important;
+  }
+
+  .#{$global-prefix}-col--collapsed#{$breakpoint-suffix} {
+    flex-grow: 0 !important;
+    flex-basis: auto !important;
+  }
+
+  .#{$global-prefix}-row {
+    margin-left: ceil(-($column-gutter/2));
+    margin-right: floor(-($column-gutter/2));
+  }
+
+  .#{$global-prefix}-col {
+    padding-left: floor(($column-gutter/2));
+    padding-right: ceil(($column-gutter/2));
+  }
+
+  .#{$global-prefix}-row--no-gutter {
+    margin-left: 0;
+    margin-right: 0;
+    & > .#{$global-prefix}-col {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}

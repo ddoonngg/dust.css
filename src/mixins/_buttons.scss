@@ -1,0 +1,449 @@
+@keyframes rotating {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(364deg);
+  }
+}
+
+@mixin button-size(
+  $height,
+  $padding-v,
+  $padding-h,
+  $font-size,
+  $border-radius
+) {
+  // 计算vertical pading?
+  height: $height;
+  font-size: $font-size;
+  padding: $padding-v $padding-h;
+  border-radius: $border-radius;
+}
+
+@mixin button-disabled(
+  $color: $btn-disabled-color,
+  $background: $btn-disabled-bg,
+  $border: $btn-disabled-border
+) {
+  &[disabled] {
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+      @include button-color($color, $background, $border);
+      text-shadow: none;
+      box-shadow: none;
+    }
+  }
+}
+
+@mixin button-color($color, $background, $border) {
+  color: $color;
+  background: $background;
+  border-color: $border;
+}
+
+@mixin btn {
+  position: relative;
+  display: inline-block;
+  font-weight: $btn-font-weight;
+  font-family: $btn-font-stack;
+  white-space: nowrap;
+  text-align: center;
+  background-image: none;
+  border: $btn-border-width $btn-border-style transparent;
+  box-shadow: $btn-shadow;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+  user-select: none;
+  touch-action: manipulation;
+  line-height: $btn-line-height;
+
+  & > span {
+    line-height: $btn-line-height;
+    display: inline-block;
+  }
+
+  & > i + span {
+    margin-left: 8px;
+  }
+
+  & > i {
+    display: inline-block;
+    font-size: 0.9em;
+    text-shadow: none;
+  }
+
+  @include button-size(
+    $btn-height-default,
+    $btn-padding-v-default,
+    $btn-padding-h-default,
+    $btn-font-size-default,
+    $btn-border-radius-default
+  );
+
+  &,
+  &:active,
+  &:focus {
+    outline: 0;
+  }
+
+  &:not([disabled]):hover {
+    text-decoration: none;
+  }
+
+  &:not([disabled]):active {
+    outline: 0;
+    box-shadow: none;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+
+    > * {
+      // what's pointer events
+      pointer-events: none;
+    }
+  }
+
+  &:before {
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    content: "";
+    background-color: transparent;
+    border: 1px solid transparent;
+    pointer-events: none;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    opacity: 0;
+  }
+  // button click effect
+  &:after {
+    content: "";
+    position: absolute;
+    display: block;
+    border-style: solid;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-width: 4px;
+    opacity: 0;
+    transition: all 300ms cubic-bezier(0.39, 0.575, 0.565, 1);
+  }
+  @include btn-after-border-radius($btn-border-radius-default);
+  &:not(disabled):active:after {
+    opacity: 1;
+    border-color: transparent;
+    border-width: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: all 0s;
+  }
+
+  &--l {
+    @include button-size(
+      $btn-height-lg,
+      $btn-padding-v-lg,
+      $btn-padding-h-lg,
+      $btn-font-size-lg,
+      $btn-border-radius-lg
+    );
+    @include btn-after-border-radius($btn-border-radius-lg);
+  }
+
+  &--s {
+    @include button-size(
+      $btn-height-sm,
+      $btn-padding-v-sm,
+      $btn-padding-h-sm,
+      $btn-font-size-sm,
+      $btn-border-radius-sm
+    );
+    @include btn-after-border-radius($btn-border-radius-sm);
+  }
+}
+
+@mixin button-variant-primary($color, $background) {
+  @include button-color($color, $background, $background);
+  text-shadow: $btn-text-shadow;
+  box-shadow: $btn-primary-shadow;
+
+  &:before {
+    border-top-color: $color;
+  }
+
+  &:hover,
+  &:focus {
+    // need to consider color contrat
+    background-color: lighten($background, 15);
+    border-color: lighten($background, 15);
+  }
+
+  &:active {
+    // need to consider color contrat
+    background-color: darken($background, 15);
+    border-color: darken($background, 15);
+  }
+
+  @include button-disabled();
+}
+
+@mixin button-variant-normal($color, $backgroud, $border) {
+  @include button-color($color, $backgroud, $border);
+
+  &:before {
+    border-top-color: $color;
+  }
+
+  &:hover,
+  &:focus {
+    @include button-color(
+      lighten($btn-bg-primary, 10),
+      $backgroud,
+      lighten($btn-bg-primary, 10)
+    );
+  }
+
+  &:active {
+    @include button-color(
+      darken($btn-bg-primary, 10),
+      $backgroud,
+      darken($btn-bg-primary, 10)
+    );
+  }
+
+  @include button-disabled();
+}
+
+@mixin btn-after-border-color($border-color) {
+  &:after {
+    border-color: $border-color;
+  }
+}
+@mixin btn-after-border-radius($border-radius) {
+  &:after {
+    border-radius: $border-radius;
+  }
+}
+
+@mixin btn-primary {
+  @include button-variant-primary($btn-primary-color, $btn-bg-primary);
+  @include btn-after-border-color($btn-bg-primary);
+  font-weight: $btn-font-weight-primary;
+}
+
+@mixin btn-default {
+  @include button-variant-normal(
+    $btn-color-default,
+    #fff,
+    $btn-border-color-default
+  );
+  @include btn-after-border-color($btn-bg-primary);
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+    background: $btn-bg-default;
+  }
+}
+
+@mixin btn-dashed {
+  @include button-variant-normal(
+    $btn-color-default,
+    $btn-bg-default,
+    $btn-border-color-default
+  );
+  border-style: dashed;
+}
+
+@mixin btn-danger {
+  @include button-variant-primary($btn-color-danger, $btn-bg-danger);
+  @include btn-after-border-color($btn-bg-danger);
+}
+
+@mixin btn-danger-default {
+  @include button-variant-normal(
+    $btn-bg-danger,
+    $btn-bg-default,
+    $btn-bg-danger
+  );
+  @include btn-after-border-color($btn-bg-danger);
+
+  &:focus,
+  &:hover {
+    background-color: $btn-bg-default;
+    color: lighten($btn-bg-danger, 10);
+    border-color: lighten($btn-bg-danger, 10);
+  }
+
+  &:active {
+    background-color: $btn-bg-default;
+    color: darken($btn-bg-danger, 10);
+    border-color: darken($btn-bg-danger, 10);
+  }
+}
+
+@mixin btn-link($color) {
+  @include button-variant-normal($color, transparent, transparent);
+  @include btn-after-border-color(transparent);
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    box-shadow: none;
+    text-shadow: none;
+    border-color: transparent;
+  }
+
+  @include button-disabled($btn-disabled-color, transparent, transparent);
+}
+@mixin btn-danger-link {
+  @include btn-link($btn-bg-danger);
+  &:hover,
+  &:focus,
+  &:active {
+    color: lighten($btn-bg-danger, 14);
+  }
+}
+
+@mixin btn-round($btn-className: $btn-className) {
+  @include button-size(
+    $btn-height-default,
+    $btn-padding-v-default,
+    $btn-padding-h-default,
+    $btn-font-size-default,
+    $btn-circle-size-default
+  );
+
+  @include btn-after-border-radius($btn-circle-size-default);
+  &.#{$global-prefix}-#{$btn-className}--l {
+    @include button-size(
+      $btn-height-lg,
+      $btn-padding-v-lg,
+      $btn-padding-h-lg,
+      $btn-font-size-lg,
+      $btn-circle-size-lg
+    );
+    @include btn-after-border-radius($btn-circle-size-lg);
+  }
+
+  &.#{$global-prefix}-#{$btn-className}--s {
+    @include button-size(
+      $btn-height-sm,
+      $btn-padding-v-sm,
+      $btn-padding-h-sm,
+      $btn-font-size-sm,
+      $btn-circle-size-sm
+    );
+    @include btn-after-border-radius($btn-circle-size-sm);
+  }
+}
+
+@mixin btn-circle($btn-className) {
+  min-width: $btn-height-default;
+  padding-right: 0;
+  padding-left: 0;
+  text-align: center;
+  border-radius: 50%;
+  @include btn-after-border-radius(50%);
+  &.#{$global-prefix}-#{$btn-className}--l {
+    min-width: $btn-height-lg;
+    border-radius: 50%;
+  }
+
+  &.#{$global-prefix}-#{$btn-className}--s {
+    min-width: $btn-height-sm;
+    border-radius: 50%;
+  }
+}
+
+// primary -loading
+// 1. circle color = primary-color
+// 2. color = primary-color
+// 3. bg = lighten primary-color
+
+// default -loading
+// 1. circle color- btn-color-default
+// 2. color = btn-color-default
+// 3. bg = btn-bg-default
+
+@mixin btn-loading($btn-className) {
+  &.#{$global-prefix}-#{$btn-className} {
+    color: transparent;
+    text-shadow: none;
+    box-shadow: none;
+    cursor: default;
+    &:after {
+      border: none;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $btn-bg-default;
+      border-color: $btn-border-color-default;
+    }
+  }
+
+  &.#{$global-prefix}-#{$btn-className}-primary {
+    background-color: lighten($btn-bg-primary, 14);
+    border-color: lighten($btn-bg-primary, 14);
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: lighten($btn-bg-primary, 14);
+      border-color: lighten($btn-bg-primary, 14);
+    }
+  }
+
+  &.#{$global-prefix}-#{$btn-className}-danger {
+    background-color: lighten($btn-bg-danger, 14);
+    border-color: lighten($btn-bg-danger, 14);
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: lighten($btn-bg-danger, 14);
+      border-color: lighten($btn-bg-danger, 14);
+    }
+  }
+
+  &.#{$global-prefix}-#{$btn-className}-dangerous {
+    background-color: $btn-bg-default;
+    border-color: lighten($btn-bg-danger, 20);
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $btn-bg-default;
+      border-color: lighten($btn-bg-danger, 20);
+    }
+  }
+
+  // &.#{$global-prefix}-#{$btn-className}-danger {
+  //   background-color: lighten($btn-bg-danger, 14);
+  //   border-color: lighten($btn-bg-danger, 14);
+
+  //   &:hover,
+  //   &:focus,
+  //   &:active {
+  //     background-color: lighten($btn-bg-danger, 14);
+  //     border-color: lighten($btn-bg-danger, 14);
+  //   }
+
+  &.#{$global-prefix}-#{$btn-className}:before {
+    opacity: 0.9;
+    animation: rotating 800ms ease-in-out infinite forwards;
+  }
+}

@@ -1,0 +1,10 @@
+.clearfix {
+  @include clearfix;
+}
+
+._justify-content-center {
+  justify-content: center;
+}
+._align-items-center {
+  align-items: center;
+}
