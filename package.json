@@ -1,0 +1,53 @@
+{
+  "name": "dust.css",
+  "version": "1.0.0",
+  "description": "A pure css UI kit",
+  "main": "dist/dust.css",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "homepage": "",
+  "repository": "https://github.com/ddoonngg/dust.css",
+  "license": "MIT",
+  "author": "Dong",
+  "keywords": [
+    "css",
+    "framework",
+    "grid",
+    "responsive"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^9.7.6",
+    "cpy-cli": "^3.1.1",
+    "node-sass": "^4.14.1",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.0.2",
+    "postcss-cli": "^7.1.1",
+    "postcss-header": "^2.0.0",
+    "prettier": "2.1.2",
+    "rimraf": "^3.0.2",
+    "stylelint": "^13.3.3",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-scss": "^3.17.1"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "start": "run-p build:dev watch",
+    "build": "run-s clean sass postcss docs",
+    "build:dev": "run-s sass copy",
+    "clean": "rimraf dist",
+    "sass": "node-sass --output-style expanded src/dust.scss dist/dust.css",
+    "sass:min": "node-sass --output-style compressed src/dust.scss dist/dust.min.css",
+    "sass:docs": "node-sass --output-style expanded docs/sass/docs.scss docs/css/docs.css",
+    "docs": "run-p sass:docs copy",
+    "copy": "cpy dist/*.css !dist/*.min.css docs/css",
+    "postcss": "postcss -r dist/*.css --map",
+    "watch": "onchange src -- run-p build:dev",
+    "watch-docs": "onchange docs/sass -- run-p sass:docs",
+    "lint": "stylelint --syntax scss \"src/**/*.scss\" --fix"
+  }
+}
