@@ -1,2 +1,3 @@
-@include make-grid-base();
-@include make-grid-responsive();
+@include grid-base();
+@include grid-responsive();
+@include grid-reponsive-util();

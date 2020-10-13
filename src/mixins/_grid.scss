@@ -1,6 +1,5 @@
-@mixin make-grid-base {
+@mixin grid-base {
   // default
-
   .#{$global-prefix}-row {
     display: flex;
     flex-flow: row wrap;
@@ -15,6 +14,7 @@
   .#{$global-prefix}-row--no-gutter {
     margin-left: 0;
     margin-right: 0;
+
     & > .#{$global-prefix}-col {
       padding-left: 0;
       padding-right: 0;
@@ -24,7 +24,7 @@
   @include loop-grid-columns($grid-columns, $grid-gutter-width-default);
 }
 
-@mixin make-grid-responsive {
+@mixin grid-responsive {
   @each $gird-breakpoint, $gird-breakpoint-width in $grid-breakpoints {
     @media (min-width: #{$gird-breakpoint-width}) {
       @include loop-grid-columns(
@@ -86,9 +86,75 @@
   .#{$global-prefix}-row--no-gutter {
     margin-left: 0;
     margin-right: 0;
+
     & > .#{$global-prefix}-col {
       padding-left: 0;
       padding-right: 0;
     }
+  }
+}
+
+@mixin grid-util($media-suffix){
+  .#{$util-prefix}algin-items-start#{$media-suffix} {
+    align-items: flex-start;
+  }
+
+  .#{$util-prefix}algin-items-center#{$media-suffix} {
+    align-items: center;
+  }
+
+  .#{$util-prefix}algin-items-end#{$media-suffix} {
+    align-items: flex-end;
+  }
+
+  //==================justify==================
+  .#{$util-prefix}justify-content-center#{$media-suffix} {
+    justify-content: center;
+  }
+
+  .#{$util-prefix}justify-content-start#{$media-suffix} {
+    justify-content: flex-start;
+  }
+
+  .#{$util-prefix}justify-content-end#{$media-suffix} {
+    justify-content: flex-end;
+  }
+
+  .#{$util-prefix}justify-content-between#{$media-suffix} {
+    justify-content: space-between;
+  }
+
+  .#{$util-prefix}justify-content-around#{$media-suffix} {
+    justify-content: space-around;
+  }
+
+  .#{$util-prefix}justify-content-evenly#{$media-suffix} {
+    justify-content: space-evenly;
+  }
+
+  //==================self align==================
+  .#{$util-prefix}align-self-center#{$media-suffix} {
+    align-self: center;
+  }
+
+  .#{$util-prefix}align-self-start#{$media-suffix} {
+    align-self: flex-start;
+  }
+
+  .#{$util-prefix}align-self-end#{$media-suffix} {
+    align-self: flex-end;
+  }
+
+}
+
+@mixin grid-reponsive-util {
+  // default
+  @include grid-util("");
+  @each $gird-breakpoint,
+    $gird-breakpoint-width in $grid-breakpoints {
+      @media (min-width: #{$gird-breakpoint-width}) {
+        @include grid-util(map-get($grid-breakpoints-suffix, $gird-breakpoint))
+    }
+  //==================alginment==================
   }
 }
